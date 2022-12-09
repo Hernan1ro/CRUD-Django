@@ -1,5 +1,4 @@
-##Django CRUD Project##
-
+Django CRUD Project
 This project is a simple implementation of a CRUD (Create, Read, Update, Delete) system using the Django web framework. It is intended as a learning exercise to practice working with Django and developing basic backend skills.
 
 Prerequisites
@@ -10,7 +9,7 @@ Clone or download the repository to your local system.
 Navigate to the root directory of the project.
 Run the following command to start the Django development server:
 Copy code
-"python manage.py runserver"
+python manage.py runserver
 Open your web browser and navigate to http://127.0.0.1:8000/ to access the application.
 Using the CRUD system
 The CRUD system allows you to create, view, update, and delete entries in a simple database table. You can access the CRUD system by clicking on the "CRUD" link in the navigation bar.
