@@ -3,3 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/proyect
+    ports:
+      - "80:80"
