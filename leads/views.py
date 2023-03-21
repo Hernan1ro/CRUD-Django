@@ -46,13 +46,13 @@ class LeadListView(LoginRequiredMixin ,ListView):
         return queryset 
 
 
-def lead_list(request):
-    leads = Lead.objects.all()
-    context = {
-        "leads": leads,
-    }
+# def lead_list(request):
+#     leads = Lead.objects.all()
+#     context = {
+#         "leads": leads,
+#     }
     
-    return render(request, "leads/lead_list.html", context)
+#     return render(request, "leads/lead_list.html", context)
 
 class LeadDetailView(LoginRequiredMixin ,DetailView):
     template_name = "leads/lead_detail.html"
@@ -74,12 +74,12 @@ class LeadDetailView(LoginRequiredMixin ,DetailView):
         return queryset 
 
 
-def lead_detail(request, pk):
-    lead = Lead.objects.get(id=pk)
-    context = {
-        "lead": lead
-    }
-    return render(request, "leads/lead_detail.html", context)
+# def lead_detail(request, pk):
+#     lead = Lead.objects.get(id=pk)
+#     context = {
+#         "lead": lead
+#     }
+#     return render(request, "leads/lead_detail.html", context)
 
 class LeadCreateView(OrganisorAndLoginRequiredMixin, CreateView):
     template_name = "leads/lead_create.html"
@@ -98,21 +98,21 @@ class LeadCreateView(OrganisorAndLoginRequiredMixin, CreateView):
         return super(LeadCreateView, self).form_valid(form)
 
 
-def  lead_create(request):
+# def  lead_create(request):
     
-    form = LeadModelForm()
+#     form = LeadModelForm()
 
-    if request.method == "POST":
-        print("Reciving a post request")
-        form = LeadModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            print("The new lead has been created")
-            return redirect("/leads")
-    context = {
-        "form": form
-    }
-    return render(request, "leads/lead_create.html", context)
+#     if request.method == "POST":
+#         print("Reciving a post request")
+#         form = LeadModelForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             print("The new lead has been created")
+#             return redirect("/leads")
+#     context = {
+#         "form": form
+#     }
+#     return render(request, "leads/lead_create.html", context)
 
 # lead update form with django Modelform
 
@@ -131,20 +131,20 @@ class LeadUpdateView(OrganisorAndLoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse("leads:lead-list")
 
-def lead_update(request, pk):
-    lead = Lead.objects.get(pk=pk)
-    form = LeadModelForm(instance=lead)
+# def lead_update(request, pk):
+#     lead = Lead.objects.get(pk=pk)
+#     form = LeadModelForm(instance=lead)
 
-    if request.method == "POST":
-        form = LeadModelForm(request.POST ,instance=lead)
-        if form.is_valid():
-            form.save()
-            return redirect("/leads")
-    context = {
-        "form" : form ,
-        "lead" : lead
-    }
-    return render(request, "leads/lead_update.html", context)
+#     if request.method == "POST":
+#         form = LeadModelForm(request.POST ,instance=lead)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("/leads")
+#     context = {
+#         "form" : form ,
+#         "lead" : lead
+#     }
+#     return render(request, "leads/lead_update.html", context)
 
 class LeadDeleteView(OrganisorAndLoginRequiredMixin, DeleteView):
     template_name = "leads/lead_delete.html"
@@ -160,9 +160,9 @@ class LeadDeleteView(OrganisorAndLoginRequiredMixin, DeleteView):
             return Lead.objects.filter(organisation=user.userprofile)
 
 
-def lead_delete(request, pk):
-    lead = Lead.objects.get(id=pk)
-    lead.delete()
-    return redirect("/leads")
+# def lead_delete(request, pk):
+#     lead = Lead.objects.get(id=pk)
+#     lead.delete()
+#     return redirect("/leads")
 
 
